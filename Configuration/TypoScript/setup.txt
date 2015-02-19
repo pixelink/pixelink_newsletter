@@ -1,0 +1,38 @@
+
+ # Module configuration
+module.tx_pixelinknewsletter {
+	persistence {
+		storagePid = {$module.tx_pixelinknewsletter.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$module.tx_pixelinknewsletter.view.templateRootPath}
+		partialRootPath = {$module.tx_pixelinknewsletter.view.partialRootPath}
+		layoutRootPath = {$module.tx_pixelinknewsletter.view.layoutRootPath}
+	}
+    settings {
+        # cleverreach api key
+        apiKey = {$module.tx_pixelinknewsletter.settings.apiKey}
+        # cleverreach wsdl url
+        wsdlUrl = {$module.tx_pixelinknewsletter.settings.wsdlUrl}
+        # source
+        source = TYPO3
+        # cleverreach account base url for the email detail view
+        emailBaseUrl = {$module.tx_pixelinknewsletter.settings.emailBaseUrl}
+        # template plain
+        template {
+            plain = {$module.tx_pixelinknewsletter.settings.template.plain}
+        }
+        email {
+            sender_default_email = {$module.tx_pixelinknewsletter.settings.email.sender_default_email}
+            sender_default_name = {$module.tx_pixelinknewsletter.settings.email.sender_default_name}
+        }
+    }
+}
+
+ config.tx_extbase.persistence.classes {
+     PIXELINK\PixelinkNewsletter\Domain\Model\Newsletter {
+         mapping {
+             columns.crdate.mapOnProperty = crdate
+         }
+     }
+ }
